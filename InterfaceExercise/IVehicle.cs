@@ -8,13 +8,7 @@ public interface IVehicle
     public enum States {excellent, good, fair, poor, terrible}
     public States Condition { get; set; }
 
-    public void ShareVehicleAndCompanyInfo()
-    {
-        
-    }
+    public void ShareVehicleAndCompanyInfo();
 
-    public void DisplayAdditionalInfo()
-    {
-        
-    }
+    public void DisplayAdditionalInfo();
 }
