@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace InterfaceExercise
 {
@@ -6,6 +7,90 @@ namespace InterfaceExercise
     {
         static void Main(string[] args)
         {
+            var car1 = new Car()
+            {
+                NumberOfSeats = 4,
+                NumberOfDoors = 4,
+                Year = 2010,
+                Make = "Honda",
+                Model = "Accord",
+                Condition = IVehicle.States.fair,
+                Nationality = "Japanese",
+                Logo = "'H' with a square around it"
+            };
+            
+            var car2 = new Car(4,4)
+            {
+                Year = 2020,
+                Make = "BMW",
+                Model = "M5 Sedan",
+                Condition = IVehicle.States.good,
+                Nationality = "German",
+                Logo = "blue and white circle with BMW on top"
+            };
+            
+            var truck1 = new Truck()
+            {
+                TowCapacity = 40000,
+                TruckPayLoad = 1395,
+                Year = 2018,
+                Make = "Ford",
+                Model = "F-450",
+                Condition = IVehicle.States.good,
+                Nationality = "American",
+                Logo = "blue oval with the word Ford"
+            };
+            var truck2 = new Truck(12000, 1200)
+            {
+                Year = 2024,
+                Make = "Toyota",
+                Model = "Tundra",
+                Condition = IVehicle.States.excellent,
+                Nationality = "Japanese",
+                Logo = "overlapping ovals to symbolize 'T'"
+            };
+            var SUV1 = new SUV()
+            {
+                FourWheelDrive = false,
+                AllWheelDrive = true,
+                Year = 2020,
+                Make = "Honda",
+                Model = "CR-V",
+                Condition = IVehicle.States.good,
+                Nationality = "Japanese",
+                Logo = "'H' with a square around it"
+            };
+            var SUV2 = new SUV(false, true)
+            {
+                Year = 2010,
+                Make = "Mazda",
+                Model = "CX-50",
+                Condition = IVehicle.States.poor,
+                Nationality = "Japanese",
+                Logo = "circle with 'V' that makes an 'M'"
+            };
+
+            var VehicleList = new List<IVehicle>()
+            {
+                car1,
+                car2,
+                truck1,
+                truck2,
+                SUV1,
+                SUV2
+            };
+            
+            VehicleExtension.WelcomeMethod(car1);
+            
+            for (int i = 0; i < VehicleList.Count; i++)
+            {
+                VehicleList[i].ShareVehicleAndCompanyInfo();
+                VehicleList[i].DisplayAdditionalInfo();
+                Console.WriteLine("");
+            }
+            
+            
+            
             //TODO Be sure to follow BEST PRACTICES when creating classes and interfaces
 
             //Create 2 Interfaces called IVehicle & ICompany
